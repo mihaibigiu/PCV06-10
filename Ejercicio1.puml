@@ -1,0 +1,20 @@
+@startuml Ejercicio 1
+left to right direction
+skinparam packageStyle rectangle
+actor Fabrica
+actor Cliente
+actor Socio
+rectangle venta{
+    (Productos) -- Socio : retira
+    (Productos) -- Socio : vende
+    Fabrica -- (Productos) : elabora
+    Socio -- (Beneficios) : obtiene
+    Cliente -- (Aplicacion web) : consulta
+    Cliente -- (Productos) : compra
+    (Beneficios) <. (Productos) : include
+    (Productos) <... (Tienda propia) : extends
+    (Productos) <... (Otros socios) : extends
+    (Productos) <... (Tienda fabrica) : extends
+    (Productos) <... (Aplicacion web) : extends
+}
+@enduml
