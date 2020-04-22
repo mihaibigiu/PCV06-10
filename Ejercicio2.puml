@@ -1,0 +1,27 @@
+@startuml Ejercicio 2
+left to right direction
+skinparam packageStyle rectangle
+actor profesor
+actor alumno
+rectangle AulaVirtual{
+    alumno -- (curso)
+    (curso) ..> (materia) : include
+    (curso) <.. (tareas) : extends
+    (curso) <.. (contenido) : extends
+    (curso) <.. (calificaciones) : extends
+    profesor - (gestionar materia)
+    profesor -- (gestionar grupo)
+    (materia) <.. (creacion materia) : extends
+    (materia) <. (gestionar materia) : include
+    (gestionar materia) <.. (modificar contenidos) : extends
+    (gestionar materia) <.. (modificar tareas) : extends
+    (gestionar materia) <.. (modificar calificaciones) : extends
+    (gestionar materia) <.. (modificar grupos) : extends
+    (modificar grupos) ..> (grupo) : include
+    (grupo) <.. (creacion grupo) : extends
+    (grupo) <.. (gestionar grupo) : include
+    (gestionar grupo) <.. (modificar alumno) : extends
+    (gestionar grupo) <.. (añadir alumno) : extends
+    (gestionar grupo) <.. (eliminar alumno) : extends
+}
+@enduml
